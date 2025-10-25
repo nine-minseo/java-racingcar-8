@@ -9,9 +9,11 @@ public class Application {
     public static void main(String[] args) {
         List<String> carNameAndAttemptCountList = new ArrayList<>();
         carNameAndAttemptCountList = getCarNameAndAttemptCountFromUser();
+        String carName = carNameAndAttemptCountList.getFirst();
+        List<String> carNameList = List.of(carName.split(","));
     }
 
-    public static List<String> getCarNameAndAttemptCountFromUser(){
+    public static List<String> getCarNameAndAttemptCountFromUser() {
         List<String> carNameAndAttemptCountList = new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
