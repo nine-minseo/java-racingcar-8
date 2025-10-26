@@ -22,6 +22,23 @@ public class Application {
         System.out.println("시도할 횟수는 몇 회인가요?");
         carNameAndAttemptCountList.add(Console.readLine());
 
+        return validValue(carNameAndAttemptCountList);
+    }
+
+    public static List<String> validValue(List<String> carNameAndAttemptCountList) {
+        List<String> carNameList = List.of(carNameAndAttemptCountList.getFirst().split(","));
+        String attemptCount = carNameAndAttemptCountList.getLast();
+
+        for (String car : carNameList) {
+            if (car.isEmpty() | car.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        if (attemptCount.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         return carNameAndAttemptCountList;
     }
 }
