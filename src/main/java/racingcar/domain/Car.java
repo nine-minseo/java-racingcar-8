@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import javax.naming.InvalidNameException;
-
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String ERROR_INVALID_NAME = "자동차의 이름은 1~5자여야 합니다.";
