@@ -1,16 +1,19 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        List<String> carNameAndAttemptCountList = getCarNameAndAttemptCountFromUser();
-        List<String> carNameList = List.of(carNameAndAttemptCountList.getFirst().split(","));
-        int attemptCount = Integer.parseInt(carNameAndAttemptCountList.getLast());
+        String carName = InputView.getCarName();
+        int attemptCount = Integer.parseInt(InputView.getAttemptCount());
+
+        List<String> carNameList = List.of(carName.split(","));
 
         List<Car> carList = new ArrayList<>();
         for (String car : carNameList) {
@@ -18,18 +21,6 @@ public class Application {
         }
 
         startGame(carList, attemptCount);
-    }
-
-    public static List<String> getCarNameAndAttemptCountFromUser() {
-        List<String> carNameAndAttemptCountList = new ArrayList<>();
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carNameAndAttemptCountList.add(Console.readLine());
-
-        System.out.println("시도할 횟수는 몇 회인가요?");
-        carNameAndAttemptCountList.add(Console.readLine());
-
-        return validValue(carNameAndAttemptCountList);
     }
 
     public static List<String> validValue(List<String> carNameAndAttemptCountList) {
@@ -71,13 +62,7 @@ public class Application {
             }
         }
 
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < maxForwardCarList.size(); i++) {
-            System.out.print(maxForwardCarList.get(i).getName());
-            if (i != maxForwardCarList.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        OutputView.printWinners(maxForwardCarList);
     }
 
     public static void playOneRound(List<Car> carList) {
@@ -87,8 +72,7 @@ public class Application {
             if (randomNumber >= 4) {
                 car.advance();
             }
-
-            System.out.println(car.getName() + " : " + "-".repeat(car.getNumberOfForwardSteps()));
         }
+        OutputView.printRoundResult(carList);
     }
 }
