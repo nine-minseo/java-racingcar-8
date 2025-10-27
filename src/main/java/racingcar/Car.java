@@ -12,6 +12,10 @@ public class Car {
         return this.name;
     }
 
+    public int getNumberOfForwardSteps() {
+        return this.numberOfForwardSteps;
+    }
+
     public void advance() {
         numberOfForwardSteps++;
     }

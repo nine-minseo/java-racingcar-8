@@ -50,12 +50,16 @@ public class Application {
     }
 
     public static void startGame(List<Car> carList) {
+        System.out.println("실행 결과");
+
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
 
             if (randomNumber >= 4) {
                 car.advance();
             }
+
+            System.out.println(car.getName() + " : " + "-".repeat(car.getNumberOfForwardSteps()));
         }
     }
 }
