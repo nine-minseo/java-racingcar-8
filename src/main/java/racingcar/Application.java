@@ -1,16 +1,23 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        List<String> carNameAndAttemptCountList = new ArrayList<>();
-        carNameAndAttemptCountList = getCarNameAndAttemptCountFromUser();
-        String carName = carNameAndAttemptCountList.getFirst();
-        List<String> carNameList = List.of(carName.split(","));
+        List<String> carNameAndAttemptCountList = getCarNameAndAttemptCountFromUser();
+        List<String> carNameList = List.of(carNameAndAttemptCountList.getFirst().split(","));
+        int attemptCount = Integer.parseInt(carNameAndAttemptCountList.getLast());
+
+        List<Car> carList = new ArrayList<>();
+        for (String car : carNameList) {
+            carList.add(new Car(car));
+        }
+
+        startGame(carList);
     }
 
     public static List<String> getCarNameAndAttemptCountFromUser() {
@@ -40,5 +47,9 @@ public class Application {
         }
 
         return carNameAndAttemptCountList;
+    }
+
+    public static void startGame(List<Car> carList) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
     }
 }
