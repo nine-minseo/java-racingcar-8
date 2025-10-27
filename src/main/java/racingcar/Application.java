@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -41,38 +39,16 @@ public class Application {
     }
 
     public static void startGame(List<Car> carList, int attemptCount) {
+        RacingGame game = new RacingGame(carList);
+
         System.out.println("\n실행 결과");
 
         for (int i = 0; i < attemptCount; i++) {
-            playOneRound(carList);
+            game.playOneRound();
+            OutputView.printRoundResult(game.getCars());
             System.out.println();
         }
-
-        int maxForwardStep = 0;
-        for (Car car : carList) {
-            if (maxForwardStep < car.getNumberOfForwardSteps()) {
-                maxForwardStep = car.getNumberOfForwardSteps();
-            }
-        }
-
-        List<Car> maxForwardCarList = new ArrayList<>();
-        for (Car car : carList) {
-            if (car.getNumberOfForwardSteps() == maxForwardStep) {
-                maxForwardCarList.add(car);
-            }
-        }
-
-        OutputView.printWinners(maxForwardCarList);
-    }
-
-    public static void playOneRound(List<Car> carList) {
-        for (Car car : carList) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-
-            if (randomNumber >= 4) {
-                car.advance();
-            }
-        }
-        OutputView.printRoundResult(carList);
+        List<Car> winners = game.findWinners();
+        OutputView.printWinners(winners);
     }
 }
