@@ -56,6 +56,28 @@ public class Application {
             playOneRound(carList);
             System.out.println();
         }
+
+        int maxForwardStep = 0;
+        for (Car car : carList) {
+            if (maxForwardStep < car.getNumberOfForwardSteps()) {
+                maxForwardStep = car.getNumberOfForwardSteps();
+            }
+        }
+
+        List<Car> maxForwardCarList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getNumberOfForwardSteps() == maxForwardStep) {
+                maxForwardCarList.add(car);
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < maxForwardCarList.size(); i++) {
+            System.out.print(maxForwardCarList.get(i).getName());
+            if (i != maxForwardCarList.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
     public static void playOneRound(List<Car> carList) {
