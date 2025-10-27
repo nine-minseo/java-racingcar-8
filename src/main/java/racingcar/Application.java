@@ -50,6 +50,12 @@ public class Application {
     }
 
     public static void startGame(List<Car> carList) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        for (Car car : carList) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+            if (randomNumber >= 4) {
+                car.advance();
+            }
+        }
     }
 }
