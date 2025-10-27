@@ -4,10 +4,15 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class OutputView {
+    private static final String EXECUTION_RESULT = "\n실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
     private static final String DELIMITER = ", ";
     private static final String SEPARATOR_CAR_PROGRESS = " : ";
     private static final String PROGRESS_BAR = "-";
+
+    public static void printResultMessage() {
+        System.out.println(EXECUTION_RESULT);
+    }
 
     public static void printRoundResult(List<Car> cars) {
         for (Car car : cars) {

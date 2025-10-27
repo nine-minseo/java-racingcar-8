@@ -41,7 +41,7 @@ public class Application {
     public static void startGame(List<Car> carList, int attemptCount) {
         RacingGame game = new RacingGame(carList);
 
-        System.out.println("\n실행 결과");
+        OutputView.printResultMessage();
 
         for (int i = 0; i < attemptCount; i++) {
             game.playOneRound();
