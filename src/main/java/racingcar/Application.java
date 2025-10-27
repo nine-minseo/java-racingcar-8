@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Application {
     private static final String ERROR_INVALID_ATTEMPT_COUNT = "시도 횟수를 입력해야 합니다.";
+    private static final String ERROR_INVALID_ATTEMPT_VALUE = "시도 횟수는 숫자여야 합니다.";
 
     public static void main(String[] args) {
         String carName = InputView.getCarName();
@@ -29,7 +30,12 @@ public class Application {
         if (attemptCount == null || attemptCount.isBlank()) {
             throw new IllegalArgumentException(ERROR_INVALID_ATTEMPT_COUNT);
         }
-        return Integer.parseInt(attemptCount);
+
+        try {
+            return Integer.parseInt(attemptCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_INVALID_ATTEMPT_VALUE);
+        }
     }
 
     public static void startGame(List<Car> carList, int attemptCount) {

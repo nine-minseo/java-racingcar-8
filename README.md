@@ -6,6 +6,7 @@
     - [x]  자동차 이름을 입력하지 않을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료한다.
     - [x]  다섯 글자를 초과하여 자동차 이름을 입력할 경우 `IllegalArgumentException` 발생시킨 후 애플리케이션을 종료한다.
     - [x]  시도할 횟수를 입력하지 않을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료한다.
+    - [x]  입력된 시도 횟수가 숫자가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료한다.
     - [x]  쉼표(,)를 기준으로 자동차 이름을 구분한다.
 - [x]  자동차 경주 게임을 진행한다.
     - [x]  0에서 9 사이의 무작위 값을 구한다.
