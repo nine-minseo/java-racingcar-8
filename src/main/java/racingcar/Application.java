@@ -17,7 +17,7 @@ public class Application {
             carList.add(new Car(car));
         }
 
-        startGame(carList);
+        startGame(carList, attemptCount);
     }
 
     public static List<String> getCarNameAndAttemptCountFromUser() {
@@ -49,9 +49,16 @@ public class Application {
         return carNameAndAttemptCountList;
     }
 
-    public static void startGame(List<Car> carList) {
-        System.out.println("실행 결과");
+    public static void startGame(List<Car> carList, int attemptCount) {
+        System.out.println("\n실행 결과");
 
+        for (int i = 0; i < attemptCount; i++) {
+            playOneRound(carList);
+            System.out.println();
+        }
+    }
+
+    public static void playOneRound(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
 
