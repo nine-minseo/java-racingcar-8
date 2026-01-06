@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.view.OutputView;
+
 public class RacingGame {
     private final List<Car> cars;
 
@@ -15,5 +17,6 @@ public class RacingGame {
                 car.move();
             }
         }
+        OutputView.printRoundResult(cars);
     }
 }

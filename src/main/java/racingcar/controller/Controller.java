@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
     public void run() {
@@ -19,6 +20,7 @@ public class Controller {
         }
         RacingGame racingGame = new RacingGame(cars);
 
+        OutputView.printResult();
         for (int i = 0; i < tryCount; i++) {
             racingGame.oneRound();
         }
