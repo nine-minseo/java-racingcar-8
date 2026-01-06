@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.view.OutputView;
 
 public class RacingGame {
     private final List<Car> cars;
@@ -21,9 +20,7 @@ public class RacingGame {
 
     public void playRound() {
         for (Car car : cars) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.move();
-            }
+            car.move(Randoms.pickNumberInRange(0, 9));
         }
     }
 

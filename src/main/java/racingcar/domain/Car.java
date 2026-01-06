@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MOVING_THRESHOLD = 4;
 
     private final String name;
     private int position = 0;
@@ -18,8 +21,10 @@ public class Car {
         }
     }
 
-    public void move() {
-        this.position++;
+    public void move(int num) {
+        if (num >= MOVING_THRESHOLD) {
+            this.position++;
+        }
     }
 
     public String getName() {
