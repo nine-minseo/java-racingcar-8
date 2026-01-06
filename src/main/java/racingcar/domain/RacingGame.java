@@ -8,8 +8,10 @@ import racingcar.view.OutputView;
 public class RacingGame {
     private final List<Car> cars;
 
-    public RacingGame(List<Car> cars) {
-        this.cars = cars;
+    public RacingGame(List<String> names) {
+        this.cars = names.stream()
+                .map(Car::new)
+                .toList();
     }
 
     public void oneRound() {

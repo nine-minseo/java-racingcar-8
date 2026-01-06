@@ -12,11 +12,7 @@ public class Controller {
         List<String> input = InputView.readCarNames();
         int tryCount = InputView.readTryCount();
 
-        List<Car> cars = new ArrayList<>();
-        for (String car : input) {
-            cars.add(new Car(car));
-        }
-        RacingGame racingGame = new RacingGame(cars);
+        RacingGame racingGame = new RacingGame(input);
 
         OutputView.printResult();
         for (int i = 0; i < tryCount; i++) {
