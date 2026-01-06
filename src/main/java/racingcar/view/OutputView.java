@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
-    public static void printResult() {
+    public static void printResultStartMessage() {
         System.out.println("\n실행 결과");
     }
 

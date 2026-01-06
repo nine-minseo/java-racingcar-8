@@ -14,7 +14,8 @@ public class Controller {
 
         RacingGame racingGame = new RacingGame(input);
 
-        OutputView.printResult();
+        OutputView.printResultStartMessage();
+
         for (int i = 0; i < tryCount; i++) {
             racingGame.oneRound();
         }
