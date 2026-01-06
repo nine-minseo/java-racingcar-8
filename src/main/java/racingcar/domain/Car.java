@@ -10,7 +10,7 @@ public class Car {
         this.name = name;
     }
 
-    public void advance() {
+    public void move() {
         this.steps++;
     }
 

@@ -1,16 +1,10 @@
 package racingcar;
 
-import racingcar.view.InputView;
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.controller.Controller;
 
 public class Application {
     public static void main(String[] args) {
-        String carNames = InputView.readCarNames();
-        String[] cars = carNames.split(",");
-
-        int tryCount = Integer.parseInt(InputView.readTryCount());
-
-        int roundCount = Randoms.pickNumberInRange(0, 9);
-
+        Controller controller = new Controller();
+        controller.run();
     }
 }
