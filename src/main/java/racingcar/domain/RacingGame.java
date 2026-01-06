@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.view.OutputView;
 
@@ -14,13 +15,16 @@ public class RacingGame {
                 .toList();
     }
 
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
     public void oneRound() {
         for (Car car : cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.move();
             }
         }
-        OutputView.printRoundResult(cars);
     }
 
     public List<Car> findWinner() {

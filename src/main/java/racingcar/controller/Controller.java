@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -18,6 +16,7 @@ public class Controller {
 
         for (int i = 0; i < tryCount; i++) {
             racingGame.oneRound();
+            OutputView.printRoundResult(racingGame.getCars());
         }
 
         OutputView.printWinners(racingGame.findWinner());
