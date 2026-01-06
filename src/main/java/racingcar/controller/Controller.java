@@ -24,5 +24,7 @@ public class Controller {
         for (int i = 0; i < tryCount; i++) {
             racingGame.oneRound();
         }
+
+        OutputView.printWinners(racingGame.findWinner());
     }
 }
