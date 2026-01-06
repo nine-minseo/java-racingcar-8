@@ -30,4 +30,11 @@ public class InputValidator {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 중복될 수 없습니다.");
         }
     }
+
+    public static void validateHasBlankName(List<String> input) {
+        if (input.stream()
+                .anyMatch(String::isBlank)) {
+            throw new IllegalArgumentException("[ERROR] 입력하지 않은 자동차 이름이 있습니다.");
+        }
+    }
 }

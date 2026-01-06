@@ -18,6 +18,7 @@ public class InputView {
                 .toList();
 
         InputValidator.validateDuplicate(names);
+        InputValidator.validateHasBlankName(names);
 
         return names;
     }
