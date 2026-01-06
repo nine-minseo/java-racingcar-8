@@ -13,9 +13,13 @@ public class InputView {
 
         InputValidator.validateHasInput(input);
 
-        return Arrays.stream(input.split(","))
+        List<String> names = Arrays.stream(input.split(","))
                 .map(String::trim)
                 .toList();
+
+        InputValidator.validateDuplicate(names);
+
+        return names;
     }
 
     public static int readTryCount() {
