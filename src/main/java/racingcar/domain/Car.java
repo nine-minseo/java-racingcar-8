@@ -10,6 +10,12 @@ public class Car {
         this.name = name;
     }
 
+    private void validateNameLength(String input) {
+        if (input.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자를 초과할 수 없습니다.");
+        }
+    }
+
     public void move() {
         this.position++;
     }
