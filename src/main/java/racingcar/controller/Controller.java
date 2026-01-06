@@ -9,13 +9,11 @@ import racingcar.view.OutputView;
 
 public class Controller {
     public void run() {
-        String input = InputView.readCarNames();
+        List<String> input = InputView.readCarNames();
         int tryCount = Integer.parseInt(InputView.readTryCount());
 
-        String[] carNames = input.split(",");
-
         List<Car> cars = new ArrayList<>();
-        for (String car : carNames) {
+        for (String car : input) {
             cars.add(new Car(car));
         }
         RacingGame racingGame = new RacingGame(cars);
