@@ -15,7 +15,7 @@ public class Controller {
         OutputView.printResultStartMessage();
 
         for (int i = 0; i < tryCount; i++) {
-            racingGame.oneRound();
+            racingGame.playRound();
             OutputView.printRoundResult(racingGame.getCars());
         }
 

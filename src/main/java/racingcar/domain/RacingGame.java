@@ -19,7 +19,7 @@ public class RacingGame {
         return Collections.unmodifiableList(cars);
     }
 
-    public void oneRound() {
+    public void playRound() {
         for (Car car : cars) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.move();
