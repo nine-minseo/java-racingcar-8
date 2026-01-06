@@ -23,8 +23,9 @@ public class InputView {
         String input = Console.readLine();
 
         InputValidator.validateHasInput(input);
-        InputValidator.validateIsNumeric(input);
+        int num = InputValidator.validateIsNumeric(input);
+        InputValidator.validateIsPositive(num);
 
-        return Integer.parseInt(input.trim());
+        return num;
     }
 }
