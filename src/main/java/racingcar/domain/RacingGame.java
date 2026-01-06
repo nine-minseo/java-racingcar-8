@@ -24,22 +24,14 @@ public class RacingGame {
         }
     }
 
-    public List<Car> findWinner() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            int position = car.getPosition();
-            if (position >= maxPosition) {
-                maxPosition = position;
-            }
-        }
+    public List<Car> findWinners() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
 
-        List<Car> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car);
-            }
-        }
-
-        return winners;
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 }
