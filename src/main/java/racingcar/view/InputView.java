@@ -18,12 +18,13 @@ public class InputView {
                 .toList();
     }
 
-    public static String readTryCount() {
+    public static int readTryCount() {
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
 
         InputValidator.validateHasInput(input);
+        InputValidator.validateIsNumeric(input);
 
-        return input;
+        return Integer.parseInt(input.trim());
     }
 }

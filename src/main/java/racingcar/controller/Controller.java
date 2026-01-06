@@ -10,7 +10,7 @@ import racingcar.view.OutputView;
 public class Controller {
     public void run() {
         List<String> input = InputView.readCarNames();
-        int tryCount = Integer.parseInt(InputView.readTryCount());
+        int tryCount = InputView.readTryCount();
 
         List<Car> cars = new ArrayList<>();
         for (String car : input) {

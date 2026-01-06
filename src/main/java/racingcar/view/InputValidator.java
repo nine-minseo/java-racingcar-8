@@ -6,4 +6,12 @@ public class InputValidator {
             throw new IllegalArgumentException("[ERROR] 입력이 비어있습니다.");
         }
     }
+
+    public static void validateIsNumeric(String input) {
+        try {
+            Integer.parseInt(input.trim());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자가 아닌 문자가 포함되어 있습니다.");
+        }
+    }
 }
